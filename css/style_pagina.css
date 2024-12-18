@@ -1,0 +1,41 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgp {
+    width: 224px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.links img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid black;
+    padding: 8px;
+    margin: 10px;
+}
+
+.links img:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+.imgp  {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ola, #estudante, #aluno, .links {
+    display: flex;
+    justify-content: center;
+}

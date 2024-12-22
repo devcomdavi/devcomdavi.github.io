@@ -67,3 +67,11 @@ body {
 .projetos a {
     color: black;
 }
+
+.projetos ul {
+    list-style-type: none;
+}
+
+.exp ul {
+    list-style-type: none;
+}

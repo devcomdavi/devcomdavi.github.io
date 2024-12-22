@@ -10,11 +10,17 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
+    
 }
 
 #txt, li {
     font-size: 18px;
     max-width: 630px;
+}
+
+#obj {
+    font-size: 18px;
+    max-width: 755.66px;
 }
 
 .imagem img {
@@ -56,4 +62,12 @@ body {
 
 .habilidades li {
     padding: 0px 20px 30px 0px;
+}
+
+.projetos {
+    padding-bottom: 30px;
+}
+
+.projetos a {
+    color: black;
 }

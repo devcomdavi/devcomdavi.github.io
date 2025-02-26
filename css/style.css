@@ -75,3 +75,13 @@ body {
 .exp ul {
     list-style-type: none;
 }
+
+@media (max-width: 700px){
+    h1 {
+        text-align: center;
+    }
+    
+    body {
+        padding: 15px;
+    }
+}

@@ -72,6 +72,10 @@ body {
     list-style-type: none;
 }
 
+.certificados a {
+    color: black;
+}
+
 .exp ul {
     list-style-type: none;
 }

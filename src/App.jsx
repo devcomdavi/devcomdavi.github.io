@@ -305,7 +305,7 @@ export default function App() {
         <section className="w-full mb-20">
           <div className="w-full h-48 md:h-72 overflow-hidden relative">
             <img 
-              src={isDarkMode ? "bannerBranco.jpeg" : "bannerLinkedIn.jpeg"} 
+              src={isDarkMode ? "bannerPreto.png" : "bannerBranco.png"} 
               alt="Banner Desenvolvedor" 
               className="w-full h-full object-cover object-center transition-opacity duration-500"
               onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1550439062-609e1531270e?auto=format&fit=crop&q=80' }}
@@ -313,7 +313,7 @@ export default function App() {
             <div className={`absolute inset-0 bg-gradient-to-b from-transparent via-transparent ${isDarkMode ? 'to-black' : 'to-slate-50'}`}></div>
           </div>
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative -mt-20 md:-mt-28">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 relative -mt-20 md:-mt-28">
             <div className="flex flex-col md:flex-row items-center md:items-end gap-6 md:gap-8">
               <TiltElement className="flex-shrink-0">
                 <img 
@@ -353,7 +353,7 @@ export default function App() {
         </section>
 
         {/* Seção Sobre */}
-        <section id="sobre" className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <section id="sobre" className="py-16 pt-2 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center gap-4 mb-10 group">
             <h2 className={`text-3xl font-bold ${t.text}`}>Sobre Mim</h2>
             <div className={`h-1 flex-1 ${isDarkMode ? 'bg-zinc-800' : 'bg-slate-300'} rounded group-hover:bg-blue-600 transition-colors duration-500`}></div>

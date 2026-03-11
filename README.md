@@ -1,16 +1,70 @@
-# React + Vite
+# Meu Portfólio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o repositório do meu portfólio pessoal. O objetivo deste projeto é exibir minhas habilidades, projetos anteriores e fornecer uma forma de contato para oportunidades profissionais. 
 
-Currently, two official plugins are available:
+Desenvolvido utilizando tecnologias modernas para garantir alta performance, acessibilidade e uma ótima experiência de usuário.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias Utilizadas
 
-## React Compiler
+Este projeto foi construído com as seguintes tecnologias:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **[React 19](https://react.dev/)**: Biblioteca JavaScript para criar interfaces de usuário.
+- **[Vite](https://vitejs.dev/)**: Bundler rápido para desenvolvimento moderno.
+- **[Tailwind CSS](https://tailwindcss.com/)**: Framework CSS utility-first para estilização rápida e responsiva.
+- **[Lucide React](https://lucide.dev/)**: Conjunto de ícones consistentes e customizáveis.
+- **[ESLint](https://eslint.org/)**: Para manter a qualidade e padronização do código.
 
-## Expanding the ESLint configuration
+## 📦 Estrutura do Projeto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+A estrutura base do projeto segue a arquitetura padrão do Vite para React:
+
+```text
+meu-portfolio/
+├── public/             # Arquivos públicos e assets estáticos (ex: favicon)
+├── src/                # Código-fonte principal
+│   ├── assets/         # Imagens globais e estilos base
+│   ├── App.jsx         # Componente principal da aplicação
+│   ├── main.jsx        # Ponto de entrada do React
+│   └── index.css       # Estilos globais (incluindo diretivas do Tailwind)
+├── eslint.config.js    # Configuração do ESLint
+├── tailwind.config.js  # Configuração de temas e utilitários do Tailwind
+├── vite.config.js      # Configurações do empacotador Vite
+└── package.json        # Dependências e scripts do projeto
+```
+
+## 🛠️ Como Executar o Projeto Localmente
+
+Siga os passos abaixo para rodar o projeto na sua máquina:
+
+### 1. Pré-requisitos
+Certifique-se de ter o **[Node.js](https://nodejs.org/)** instalado na sua máquina.
+
+### 2. Instalação das dependências
+
+No terminal, acesse a pasta do projeto (`meu-portfolio`) e rode:
+
+```bash
+npm install
+```
+*(ou `yarn install` / `pnpm install` caso prefira outro gerenciador)*
+
+### 3. Rodando o servidor de desenvolvimento
+
+Inicie o servidor localmente com:
+
+```bash
+npm run dev
+```
+
+Abra o seu navegador no endereço indicado (geralmente `http://localhost:5173`) para visualizar o portfólio em tempo real.
+
+## ⚙️ Comandos Disponíveis
+
+- `npm run dev`: Inicia o servidor de desenvolvimento local com Hot Module Replacement (HMR).
+- `npm run build`: Compila o projeto para produção na pasta `/dist`, otimizando os arquivos.
+- `npm run lint`: Inspeciona o código em busca de problemas de padronização através do ESLint.
+- `npm run preview`: Serve os arquivos compilados (da pasta `dist`) para testar a versão final localmente.
+
+## 🎨 Funcionalidades
+
+*(Adicione aqui as funcionalidades principais do seu portfólio à medida que for construindo. Exemplo: Seção de Projetos, Contato, Modo Escuro/Claro, Animações, etc.)*

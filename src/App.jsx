@@ -7,6 +7,7 @@ import {
   Sun, Moon, Globe, RefreshCcw, Sparkles, GitMerge
 } from 'lucide-react';
 import { Typewriter } from './components/ui/typewriter-text';
+import { ContainerScroll } from './components/ui/container-scroll-animation';
 
 // Estilos globais para a animação flutuante dos ícones
 const floatAnimationStyles = `
@@ -402,6 +403,29 @@ export default function App() {
               </div>
             </MacWindow>
           </div>
+        </section>
+
+        {/* Scroll Animation Section */}
+        <section className="relative z-10">
+          <ContainerScroll
+            titleComponent={
+              <div className="flex flex-col items-center">
+                <h2 className={`text-4xl font-semibold ${t.text} mb-2`}>
+                  Conheça meu trabalho
+                </h2>
+                <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none text-blue-500">
+                  Na Prática
+                </span>
+              </div>
+            }
+          >
+            <img
+              src="print_github.png"
+              alt="Print do GitHub"
+              className="mx-auto rounded-2xl object-cover h-full w-full object-center"
+              draggable={false}
+            />
+          </ContainerScroll>
         </section>
 
         {/* Habilidades - Efeito 3D Hover */}

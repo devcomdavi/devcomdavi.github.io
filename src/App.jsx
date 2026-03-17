@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  Github, Linkedin, Mail, MapPin, Smartphone, ChevronRight, 
-  Terminal, Coffee, FileCode, Cloud, Bot, Database, 
-  GitBranch, ImageIcon, Users, Target, MessageSquare, 
+import {
+  Github, Linkedin, Mail, MapPin, Smartphone, ChevronRight,
+  Terminal, Coffee, FileCode, Cloud, Bot, Database,
+  GitBranch, ImageIcon, Users, Target, MessageSquare,
   Zap, Handshake, Briefcase, GraduationCap, Utensils, Menu, X,
   Sun, Moon, Globe, RefreshCcw, Sparkles, GitMerge
 } from 'lucide-react';
+import { Typewriter } from './components/ui/typewriter-text';
 
 // Estilos globais para a animação flutuante dos ícones
 const floatAnimationStyles = `
@@ -220,7 +221,7 @@ export default function App() {
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80; 
+      const offset = 80;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -258,7 +259,7 @@ export default function App() {
                 DevcomDavi
               </span>
             </div>
-            
+
             <div className="hidden md:flex space-x-8">
               <a href="#sobre" onClick={(e) => scrollToSection(e, 'sobre')} className={`${t.textSec} hover:text-blue-500 transition-colors font-medium`}>Sobre</a>
               <a href="#habilidades" onClick={(e) => scrollToSection(e, 'habilidades')} className={`${t.textSec} hover:text-blue-500 transition-colors font-medium`}>Habilidades</a>
@@ -267,8 +268,8 @@ export default function App() {
             </div>
 
             <div className="flex items-center gap-4">
-              <button 
-                onClick={toggleTheme} 
+              <button
+                onClick={toggleTheme}
                 className={`p-2 rounded-full ${isDarkMode ? 'hover:bg-zinc-800 text-zinc-300 hover:text-white' : 'hover:bg-slate-200 text-slate-600 hover:text-slate-900'} transition-colors`}
                 aria-label="Toggle Theme"
               >
@@ -276,7 +277,7 @@ export default function App() {
               </button>
 
               <div className="md:hidden flex items-center">
-                <button 
+                <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className={`${t.textSec} hover:${t.text} focus:outline-none`}
                 >
@@ -325,8 +326,16 @@ export default function App() {
               </TiltElement>
 
               <div className="flex-1 text-center md:text-left pb-4 space-y-3">
-                <h1 className={`text-4xl md:text-5xl font-bold tracking-tight ${t.text}`}>Davi Holanda</h1>
-                
+                <h1 className={`text-4xl md:text-5xl font-bold tracking-tight ${t.text}`}>
+                  <Typewriter
+                    text={["Davi Holanda", "DevcomDavi"]}
+                    speed={100}
+                    loop={true}
+                    deleteSpeed={50}
+                    delay={2000}
+                  />
+                </h1>
+
                 <div className="inline-block bg-blue-600 text-white px-4 py-1.5 font-bold tracking-wider transform -skew-x-12">
                   <span className="inline-block transform skew-x-12">Desenvolvedor de Software</span>
                 </div>

@@ -4,7 +4,8 @@ import {
   Terminal, Coffee, FileCode, Cloud, Bot, Database,
   GitBranch, ImageIcon, Users, Target, MessageSquare,
   Zap, Handshake, Briefcase, GraduationCap, Utensils, Menu, X,
-  Sun, Moon, Globe, RefreshCcw, Sparkles, GitMerge
+  Sun, Moon, Globe, RefreshCcw, Sparkles, GitMerge,
+  Play, Workflow, ShieldCheck, Server, Award, Trophy, Webhook, BrainCircuit
 } from 'lucide-react';
 import { Typewriter } from './components/ui/typewriter-text';
 import { ContainerScroll } from './components/ui/container-scroll-animation';
@@ -31,35 +32,79 @@ const floatAnimationStyles = `
 const PROJECTS = [
   {
     id: 1,
-    title: "Site para Restaurante",
-    description: "Desenvolvimento de uma interface web para restaurante. Foco em usabilidade e apresentação de cardápio.",
-    link: "https://mix-arretado.vercel.app/",
-    linkText: "Ver Projeto",
-    icon: 'utensils'
+    title: "Obra Manager",
+    context: "EALI · Construtora Techne · em produção",
+    description: "Sistema de gestão de obras usado por diretoria, engenharia, arquitetura, segurança do trabalho, equipamentos e financeiro: planejamento com Gantt e LOB, compras com dupla aprovação, estoque, diário de obra, FVS, medições e financeiro por obra. Assumi e evoluo o sistema com Claude Code (220+ commits).",
+    stack: ["Next.js", "TypeScript", "Supabase", "Resend", "Claude Code"],
+    video: "videos/obra-manager.mp4",
+    poster: "videos/obra-manager.jpg",
+    icon: 'building'
   },
   {
     id: 2,
-    title: "Automação RPA - Botcity",
-    description: "Criação de um Bot de automação utilizando o framework Botcity. Projeto final desenvolvido durante o estágio na Compass Uol.",
-    link: "#",
-    linkText: "Ver Código",
-    icon: 'bot'
+    title: "Dashboard de atendimento",
+    context: "EALI · Frade Imobiliária · ~15 corretores",
+    description: "Painel em TV integrado ao CRM (GoHighLevel) por API e webhooks: fila round-robin, SLA com transferência automática do lead, ranking de corretores e uma \"piscina\" para resgatar leads parados pelo celular. Reduz leads perdidos e falhas de atendimento.",
+    stack: ["Next.js", "Prisma", "GoHighLevel API", "Webhooks", "Docker", "PM2 · VPS"],
+    video: "videos/dashboard-frade.mp4",
+    poster: "videos/dashboard-frade.jpg",
+    icon: 'webhook'
   },
   {
     id: 3,
-    title: "Repositório de Estudos",
-    description: "Coleção de projetos, exercícios e conteúdos que estou estudando ativamente para aprimorar minhas habilidades.",
-    link: "https://github.com/devcomdavi",
-    linkText: "Acessar GitHub",
-    icon: 'github'
+    title: "Mix Manager",
+    context: "SaaS para restaurantes · piloto no Mix Arretado",
+    description: "Fichas técnicas com custo, margem e CMV calculados na hora, estoque, compras, produção, perdas e lista de compras automática. Multi-tenant com isolamento por RLS, documentado e auditado (segurança e LGPD) com as minhas skills.",
+    stack: ["React PWA", "Supabase", "PostgreSQL · RLS", "Edge Functions", "Cloudflare"],
+    video: "videos/mix-manager.mp4",
+    poster: "videos/mix-manager.jpg",
+    icon: 'utensils'
   },
   {
     id: 4,
-    title: "Projeto de Exemplo (Em Breve)",
-    description: "Espaço reservado para um futuro projeto. Adicionado apenas para demonstrar o funcionamento do botão 'Ver Mais'.",
-    link: "#",
-    linkText: "Aguarde",
-    icon: 'code'
+    title: "OfficeMind",
+    context: "Plugin do Obsidian · projeto pessoal",
+    description: "O segundo cérebro como um escritório 2D: cada pasta vira uma sala e cada rotina vira um personagem. Usa o Claude Code em modo headless e o conector do Google Drive para ler planilhas (comparei modelos: Haiku em ~12 s e US$ 0,01 por leitura).",
+    stack: ["TypeScript", "Canvas 2D", "Claude Code", "Google Drive", "Apps Script", "Vitest · CI"],
+    video: "videos/officemind.mp4",
+    poster: "videos/officemind.jpg",
+    icon: 'brain'
+  },
+  {
+    id: 5,
+    title: "Skills open source para Claude Code",
+    context: "Ferramentas de IA que uso em todo sistema",
+    description: "skill-seguranca-lgpd (OWASP Top 10, OWASP LLM Top 10, LGPD e pentest com Strix) e skill-documentacao-sistema (requisitos, casos de uso e ADRs). Scripts Python que procuram segredos expostos, dependências vulneráveis e dados pessoais.",
+    stack: ["Claude Code", "Python", "OWASP", "LGPD"],
+    link: "https://github.com/devcomdavi/skill-seguranca-lgpd",
+    linkText: "Ver no GitHub",
+    link2: "https://github.com/devcomdavi/skill-documentacao-sistema",
+    link2Text: "Skill de documentação",
+    icon: 'shield'
+  },
+  {
+    id: 6,
+    title: "Agente de IA SDR no WhatsApp",
+    context: "EALI · construtora",
+    description: "Agente que atende leads 24h: engenharia de prompt, base de conhecimento por empreendimento, qualificação com gravação de campos no CRM, regras de passagem para o humano e gatilho de workflow para a roleta de corretores.",
+    stack: ["GoHighLevel Conversation AI", "Prompt engineering", "Workflows"],
+    icon: 'bot'
+  },
+  {
+    id: 7,
+    title: "Snapshot imobiliário no CRM",
+    context: "EALI · Dynamus CRM (whitelabel do GoHighLevel)",
+    description: "Subconta-modelo para imobiliárias e construtoras com pipelines, workflows e integração a sistemas de venda. Reduziu a implementação de um cliente de ~15 para ~3 dias. Usado em clientes como Realize-se Imóveis (4 subcontas) e Atacadão dos Eletros.",
+    stack: ["GoHighLevel", "Workflows", "Webhooks"],
+    icon: 'workflow'
+  },
+  {
+    id: 8,
+    title: "Bot RPA com BotCity",
+    context: "Compass UOL · projeto final do estágio",
+    description: "Bot que captura cotações e taxas e preenche automaticamente os sites dos Correios e da Jadlog. Na trilha também fiz uma automação que consome APIs públicas (cotações e Selic) e gera relatório em Excel.",
+    stack: ["Python", "BotCity", "APIs REST", "openpyxl"],
+    icon: 'cpu'
   }
 ];
 
@@ -71,6 +116,12 @@ const getProjectIcon = (iconName, className) => {
     case 'bot': return <Bot {...props} />;
     case 'github': return <Github {...props} />;
     case 'code': return <FileCode {...props} />;
+    case 'building': return <Briefcase {...props} />;
+    case 'webhook': return <Webhook {...props} />;
+    case 'brain': return <BrainCircuit {...props} />;
+    case 'shield': return <ShieldCheck {...props} />;
+    case 'workflow': return <Workflow {...props} />;
+    case 'cpu': return <Terminal {...props} />;
     default: return <Database {...props} />;
   }
 };
@@ -255,7 +306,7 @@ export default function App() {
       <nav className={`fixed w-full z-50 top-0 ${t.nav} backdrop-blur-md border-b ${t.border} transition-colors duration-500`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={(e) => window.scrollTo({top: 0, behavior: 'smooth'})}>
+            <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
               <span className={`text-xl font-bold ${t.logoBg} ${t.logoText} px-3 py-1 rounded shadow-lg hover:scale-105 transition-transform`}>
                 DevcomDavi
               </span>
@@ -338,11 +389,11 @@ export default function App() {
                 </h1>
 
                 <div className="inline-block bg-blue-600 text-white px-4 py-1.5 font-bold tracking-wider transform -skew-x-12">
-                  <span className="inline-block transform skew-x-12">Desenvolvedor de Software</span>
+                  <span className="inline-block transform skew-x-12">Desenvolvedor de Software · Sistemas e Automações com IA</span>
                 </div>
                 
                 <p className={`${t.textMuted} max-w-2xl text-lg mt-2 mx-auto md:mx-0 transition-colors duration-500`}>
-                  Aluno de Sistemas para Internet no IFPB. Transformando ideias em resultados práticos por meio da tecnologia e automação.
+                  Estudante de Sistemas para Internet no IFPB. Construo com IA sistemas em produção, integrações com CRM, agentes de atendimento e automações, do pedido do cliente ao deploy.
                 </p>
 
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-3">
@@ -372,14 +423,14 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className={`space-y-6 ${t.textSec} leading-relaxed text-lg`}>
               <p className={`hover:${t.text} transition-colors`}>
-                Sou estudante de Sistemas para Internet e <strong className="text-blue-500">desenvolvedor de software</strong>, com experiência prática adquirida em projetos acadêmicos e durante meu estágio na Compass Uol.
+                Sou estudante de Sistemas para Internet no IFPB e trabalho na área tech da <strong className="text-blue-500">EALI Marketing</strong>, onde uso IA como ferramenta principal: <strong className="text-blue-500">Claude Code, API da Anthropic e MCP</strong>.
               </p>
               <p className={`hover:${t.text} transition-colors`}>
-                Busco oportunidades no mercado tech. Já desenvolvi soluções variadas: um site para restaurante, um sistema de agendamento focado em POO (herança e polimorfismo), e um bot em Python que automatiza validações de cadastro e solicitações de envio nos Correios.
+                Coloco em produção sistemas para clientes, dashboards integrados ao CRM (GoHighLevel), agentes de atendimento no WhatsApp e automações, e cuido da infraestrutura em VPS. Também crio minhas próprias ferramentas de IA: skills open source que documentam e auditam (segurança e LGPD) tudo o que construo.
               </p>
               <div className={`border-l-4 border-blue-600 pl-6 py-4 ${isDarkMode ? 'bg-zinc-900/80' : 'bg-white'} rounded-r-xl italic font-medium relative overflow-hidden group shadow-sm transition-colors duration-500`}>
                 <div className="absolute inset-0 bg-blue-600/10 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
-                "Com uma base teórica sólida, busco transformar meu conhecimento em resultados práticos e agregar valor ao mercado de tecnologia."
+                "Não preciso saber tudo de cabeça: sei o que pedir à IA, reviso o que ela entrega e transformo isso em produto que as pessoas usam."
               </div>
             </div>
             
@@ -419,11 +470,15 @@ export default function App() {
               </div>
             }
           >
-            <img
-              src="print_github.png"
-              alt="Print do GitHub"
+            <video
+              src="videos/dashboard-frade.mp4"
+              poster="videos/dashboard-frade.jpg"
               className="mx-auto rounded-2xl object-cover h-full w-full object-center"
-              draggable={false}
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-label="Demonstração do dashboard de atendimento integrado ao CRM"
             />
           </ContainerScroll>
         </section>
@@ -432,26 +487,30 @@ export default function App() {
         <section id="habilidades" className={`py-16 ${t.bgSec} border-y ${t.borderSec} relative z-10 transition-colors duration-500`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-4 mb-12 group">
-              <h2 className={`text-3xl font-bold ${t.text}`}>Hard Skills</h2>
+              <h2 className={`text-3xl font-bold ${t.text}`}>Tecnologias</h2>
               <div className={`h-1 flex-1 ${isDarkMode ? 'bg-zinc-800' : 'bg-slate-300'} rounded group-hover:bg-blue-600 transition-colors duration-500`}></div>
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
+                { name: 'Claude Code', icon: <Sparkles size={40} className="text-orange-400" />, desc: 'API Anthropic · MCP' },
                 { name: 'Python', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
                 { name: 'Java', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg' },
                 { name: 'JavaScript', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
                 { name: 'AWS', imgSrc: 'https://img.icons8.com/color/144/amazon-web-services.png', desc: 'Cloud Practitioner' },
                 { name: 'PostgreSQL', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
                 { name: 'Git', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
-                { name: 'GitHub', icon: <Github size={40} className={t.text} /> },
-                { name: 'Photoshop', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg' },
+                { name: 'TypeScript', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
+                { name: 'React', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
+                { name: 'Next.js', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg', invert: true },
+                { name: 'Supabase', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg' },
+                { name: 'Docker', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
               ].map((skill, index) => (
                 <TiltElement key={index}>
                   <div className={`${t.card} p-6 rounded-xl border ${t.border} hover:border-blue-600 hover:${isDarkMode ? 'bg-zinc-800/80' : 'bg-slate-50'} transition-colors duration-300 group text-center h-full flex flex-col justify-center items-center shadow-lg`}>
                     <div className="transition-all duration-300 mb-4 group-hover:scale-110 flex items-center justify-center h-12">
                       {skill.imgSrc ? (
-                        <img src={skill.imgSrc} alt={`${skill.name} logo`} className="h-10 w-10 object-contain drop-shadow-md" />
+                        <img src={skill.imgSrc} alt={`${skill.name} logo`} className={`h-10 w-10 object-contain drop-shadow-md ${skill.invert && isDarkMode ? "invert" : ""}`} />
                       ) : (
                         skill.icon
                       )}
@@ -467,10 +526,17 @@ export default function App() {
             <div className="mt-12">
               <MacWindow isDarkMode={isDarkMode} t={t} title="davi@macbook: ~/outras-skills" bodyClassName="p-6 md:p-8">
                 <h3 className="text-xl font-semibold mb-6 flex items-center gap-2 text-blue-500 font-mono">
-                  <Terminal size={24} /> <span className="text-green-500 font-bold">➜</span> conhecimentos_adicionais
+                  <Terminal size={24} /> <span className="text-green-500 font-bold">➜</span> ia_e_automação
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {[
+                    { icon: <Sparkles size={16}/>, text: "claude_code" },
+                    { icon: <BrainCircuit size={16}/>, text: "prompt_engineering" },
+                    { icon: <Bot size={16}/>, text: "agentes_de_ia" },
+                    { icon: <Webhook size={16}/>, text: "mcp_e_apis" },
+                    { icon: <Workflow size={16}/>, text: "gohighlevel_crm" },
+                    { icon: <Server size={16}/>, text: "vps_linux" },
+                    { icon: <ShieldCheck size={16}/>, text: "segurança_e_lgpd" },
                     { icon: <Globe size={16}/>, text: "inglês_intermediário" },
                     { icon: <RefreshCcw size={16}/>, text: "ágil_com_scrum" },
                     { icon: <Sparkles size={16}/>, text: "clean_code" },
@@ -507,10 +573,17 @@ export default function App() {
                 <MacWindow isDarkMode={isDarkMode} t={t} title="davi@macbook: ~/educacao" bodyClassName="p-6" className={`hover:${isDarkMode ? 'border-zinc-700' : 'border-slate-300'} transition duration-300 shadow-sm`}>
                   <h4 className={`text-xl font-bold ${t.text}`}>Sistemas para Internet</h4>
                   <p className="text-blue-500 font-medium mt-1">IFPB (Instituto Federal da Paraíba)</p>
-                  <p className={`${t.textMuted} text-sm my-3 font-mono ${t.pill} inline-block px-2 py-1 rounded border ${t.border}`}>4º Período</p>
+                  <p className={`${t.textMuted} text-sm my-3 font-mono ${t.pill} inline-block px-2 py-1 rounded border ${t.border}`}>5º período · ago/2024 – dez/2027</p>
                   <p className={t.textSec}>
                     Curso tecnológico focado no desenvolvimento de aplicações web, infraestrutura, banco de dados e metodologias modernas de engenharia de software.
                   </p>
+                </MacWindow>
+                <div className="h-6"></div>
+                <MacWindow isDarkMode={isDarkMode} t={t} title="davi@macbook: ~/certificacoes" bodyClassName="p-6" className="shadow-sm">
+                  <h4 className={`text-lg font-bold flex items-center gap-2 ${t.text}`}><Award size={20} className="text-orange-400" /> AWS Certified Cloud Practitioner</h4>
+                  <p className="text-blue-500 font-medium mt-1">Amazon Web Services · out/2025</p>
+                  <h4 className={`text-lg font-bold flex items-center gap-2 mt-5 ${t.text}`}><Trophy size={20} className="text-yellow-400" /> 2 hackathons</h4>
+                  <p className={`${t.textSec} mt-1`}>Entre eles o IFTECH 2026 (IFPB).</p>
                 </MacWindow>
               </div>
             </div>
@@ -523,9 +596,29 @@ export default function App() {
               </h3>
               <div className={`relative pl-8 border-l-2 ${t.border} hover:border-blue-600 transition-colors duration-500`}>
                 <div className="absolute w-4 h-4 bg-blue-600 rounded-full -left-[9px] top-1 shadow-[0_0_10px_rgba(37,99,235,0.8)]"></div>
-                <MacWindow isDarkMode={isDarkMode} t={t} title="davi@macbook: ~/experiencia" bodyClassName="p-6" className={`hover:${isDarkMode ? 'border-zinc-700' : 'border-slate-300'} transition duration-300 shadow-sm`}>
-                  <h4 className={`text-xl font-bold ${t.text}`}>Estágio em RPA</h4>
-                  <p className="text-blue-500 font-medium mt-1">Compass Uol</p>
+                <MacWindow isDarkMode={isDarkMode} t={t} title="davi@macbook: ~/experiencia/atual" bodyClassName="p-6" className={`hover:${isDarkMode ? 'border-zinc-700' : 'border-slate-300'} transition duration-300 shadow-sm`}>
+                  <h4 className={`text-xl font-bold ${t.text}`}>Desenvolvedor de Automações e Sistemas</h4>
+                  <p className="text-blue-500 font-medium mt-1">EALI Marketing · área tech</p>
+                  <p className={`${t.textMuted} text-sm my-3 font-mono ${t.pill} inline-block px-2 py-1 rounded border ${t.border}`}>jan/2026 – atual</p>
+                  <ul className={`${t.textSec} space-y-2 list-disc pl-5 leading-relaxed`}>
+                    <li>Sistema de gestão de obras em produção para uma construtora.</li>
+                    <li>Dashboard integrado ao CRM usado por ~15 corretores, com SLA e resgate de leads.</li>
+                    <li>Agente de IA SDR no WhatsApp e implementações do CRM Dynamus (GoHighLevel).</li>
+                    <li>Snapshot imobiliário que reduziu a implementação de ~15 para ~3 dias.</li>
+                    <li>Infraestrutura em VPS da empresa e de clientes.</li>
+                  </ul>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    <span className={`text-xs ${t.pill} border ${t.border} text-blue-500 px-3 py-1 rounded-full font-mono`}>claude_code</span>
+                    <span className={`text-xs ${t.pill} border ${t.border} text-blue-500 px-3 py-1 rounded-full font-mono`}>gohighlevel</span>
+                    <span className={`text-xs ${t.pill} border ${t.border} text-blue-500 px-3 py-1 rounded-full font-mono`}>next.js</span>
+                    <span className={`text-xs ${t.pill} border ${t.border} text-blue-500 px-3 py-1 rounded-full font-mono`}>supabase</span>
+                  </div>
+                </MacWindow>
+                <div className="h-6"></div>
+                <MacWindow isDarkMode={isDarkMode} t={t} title="davi@macbook: ~/experiencia/compass" bodyClassName="p-6" className={`hover:${isDarkMode ? 'border-zinc-700' : 'border-slate-300'} transition duration-300 shadow-sm`}>
+                  <h4 className={`text-xl font-bold ${t.text}`}>Estágio na Trilha de RPA</h4>
+                  <p className="text-blue-500 font-medium mt-1">Compass UOL</p>
+                  <p className={`${t.textMuted} text-sm my-3 font-mono ${t.pill} inline-block px-2 py-1 rounded border ${t.border}`}>mai/2025 – set/2025</p>
                   <p className={`${t.textSec} mt-4 leading-relaxed`}>
                     Trilha de estudos englobando diversos conteúdos do mundo empresarial e da programação, com forte <strong>foco em RPA (Robotic Process Automation)</strong>.
                   </p>
@@ -548,34 +641,66 @@ export default function App() {
               <div className={`h-1 flex-1 ${isDarkMode ? 'bg-zinc-800' : 'bg-slate-300'} rounded group-hover:bg-blue-600 transition-colors duration-500`}></div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {PROJECTS.slice(0, showAllProjects ? PROJECTS.length : 3).map((project) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {PROJECTS.slice(0, showAllProjects ? PROJECTS.length : 4).map((project) => (
                 <MacWindow 
                   key={project.id}
                   isDarkMode={isDarkMode} 
                   t={t} 
-                  title={`~/projetos/${project.icon}`} 
+                  title={`~/projetos/${project.title.toLowerCase().normalize('NFD').replace(/[^a-z0-9]+/g, '-')}`} 
                   bodyClassName="flex flex-col h-full p-0"
                   className={`hover:-translate-y-2 hover:border-blue-600 hover:${t.shadow} transition-all duration-300 group`}
                 >
-                  <div className={`h-48 ${t.pill} relative flex items-center justify-center overflow-hidden border-b ${t.border}`}>
-                    <div className="absolute inset-0 bg-blue-600/5 group-hover:bg-blue-600/10 transition-colors"></div>
-                    {getProjectIcon(project.icon, `${t.icon} group-hover:text-blue-500 group-hover:scale-110 transition-all duration-500`)}
-                  </div>
+                  {project.video ? (
+                    <div className={`aspect-video bg-black relative overflow-hidden border-b ${t.border}`}>
+                      <video
+                        src={project.video}
+                        poster={project.poster}
+                        controls
+                        preload="none"
+                        playsInline
+                        className="w-full h-full object-cover"
+                        aria-label={`Demonstração em vídeo: ${project.title}`}
+                      />
+                    </div>
+                  ) : (
+                    <div className={`aspect-video ${t.pill} relative flex items-center justify-center overflow-hidden border-b ${t.border}`}>
+                      <div className="absolute inset-0 bg-blue-600/5 group-hover:bg-blue-600/10 transition-colors"></div>
+                      {getProjectIcon(project.icon, `${t.icon} group-hover:text-blue-500 group-hover:scale-110 transition-all duration-500`)}
+                    </div>
+                  )}
                   <div className="p-6 flex-1 flex flex-col">
-                    <h3 className={`text-xl font-bold mb-2 ${t.text}`}>{project.title}</h3>
-                    <p className={`${t.textMuted} text-sm mb-6 flex-1`}>
+                    <h3 className={`text-xl font-bold ${t.text}`}>{project.title}</h3>
+                    <p className="text-blue-500 text-xs font-mono mt-1 mb-3">{project.context}</p>
+                    <p className={`${t.textMuted} text-sm mb-4 flex-1 leading-relaxed`}>
                       {project.description}
                     </p>
-                    <a href={project.link} target="_blank" rel="noreferrer" className="text-blue-500 font-semibold hover:text-blue-600 transition flex items-center gap-1 group/link w-max">
-                      {project.linkText} <ChevronRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
-                    </a>
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {project.stack.map((tech) => (
+                        <span key={tech} className={`text-[11px] ${t.pill} border ${t.border} ${t.textSec} px-2 py-0.5 rounded-full font-mono`}>{tech}</span>
+                      ))}
+                    </div>
+                    <div className="flex flex-wrap gap-4">
+                      {project.video && (
+                        <span className={`${t.textMuted} text-xs flex items-center gap-1`}><Play size={14} /> Demo com dados fictícios</span>
+                      )}
+                      {project.link && (
+                        <a href={project.link} target="_blank" rel="noreferrer" className="text-blue-500 font-semibold hover:text-blue-600 transition flex items-center gap-1 group/link w-max">
+                          {project.linkText} <ChevronRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
+                        </a>
+                      )}
+                      {project.link2 && (
+                        <a href={project.link2} target="_blank" rel="noreferrer" className="text-blue-500 font-semibold hover:text-blue-600 transition flex items-center gap-1 group/link w-max">
+                          {project.link2Text} <ChevronRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </MacWindow>
               ))}
             </div>
 
-            {PROJECTS.length > 3 && (
+            {PROJECTS.length > 4 && (
               <div className="mt-12 flex justify-center">
                 <button 
                   onClick={() => setShowAllProjects(!showAllProjects)}
